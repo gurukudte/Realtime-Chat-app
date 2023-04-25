@@ -13,6 +13,9 @@ const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors());
+app.use("/", (req, res) => {
+  res.status(200).json("Welcome to RealTime-Chat-app-API");
+});
 app.use("/api/auth", authRouter);
 app.use("/api", chatRouter);
 app.use("/api/messege", messegeRouter);
