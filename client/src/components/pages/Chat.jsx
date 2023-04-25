@@ -2,11 +2,19 @@ import React, { useContext, useEffect, useState } from "react";
 import { SideBar, Main } from "../../components";
 import ChatContext from "../../context/chatContext";
 import { io } from "socket.io-client";
+import { useNavigate } from "react-router-dom";
 
 let socket;
 const Chat = () => {
-  const [newChatr, setnewChatr] = useState({});
   const { user, chats, setchats, BACKEND_URI } = useContext(ChatContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userExist = Object.keys(user);
+    if (userExist.length === 0) {
+      navigate("/");
+    }
+  }, []);
 
   useEffect(() => {
     socket = io(BACKEND_URI);
@@ -15,19 +23,8 @@ const Chat = () => {
 
   useEffect(() => {
     socket.on("chat recieved", (newChat) => {
-      // setnewChatr(newChat.chat);
       setchats([...chats, newChat.chat]);
-      // console.log(newMessegeReceived._id);
-      // if (
-      //   !selectedChatCompare ||
-      //   selectedChatCompare._id === newMessegeReceived._id
-      // ) {
-      // } else {
-      //   console.log(newMessegeReceived);
-      //   setMesseges([...messeges, newMessegeReceived]);
-      // }
     });
-    console.log(chats);
   });
 
   return (

@@ -17,9 +17,6 @@ app.use("/api/auth", authRouter);
 app.use("/api", chatRouter);
 app.use("/api/messege", messegeRouter);
 
-app.use("/", (req, res) => {
-  res.status(200).json("Welcome to RealTime-Chat-app-API");
-});
 const server = app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);
   connectDB();
