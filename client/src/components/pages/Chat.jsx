@@ -6,10 +6,10 @@ import { io } from "socket.io-client";
 let socket;
 const Chat = () => {
   const [newChatr, setnewChatr] = useState({});
-  const { user, chats, setchats } = useContext(ChatContext);
+  const { user, chats, setchats, BACKEND_URI } = useContext(ChatContext);
 
   useEffect(() => {
-    socket = io("http://localhost:8080");
+    socket = io(BACKEND_URI);
     socket.emit("setup", user);
   }, [user]);
 

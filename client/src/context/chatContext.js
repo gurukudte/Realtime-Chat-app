@@ -4,6 +4,8 @@ import axios from "axios";
 const ChatContext = createContext();
 
 export const ChatsProvider = ({ children }) => {
+  const BACKEND_URI =
+    "https://realtime-chat-app-production-9e3b.up.railway.app";
   const [userName, setUserName] = useState("");
   const [user, setuser] = useState({});
   const [chats, setchats] = useState([]);
@@ -11,13 +13,11 @@ export const ChatsProvider = ({ children }) => {
   const [activeChat, setActiveChat] = useState({});
   const [newchatcreated, setnewchatcreated] = useState(false);
 
-  
-
   const getChats = async () => {
     try {
-      const res = await axios.get(`http://localhost:8080/api/chat/${userName}`);
-      const userData = await axios.get(`http://localhost:8080/api/${userName}`);
-      const peopleData = await axios.get(`http://localhost:8080/api/people`);
+      const res = await axios.get(`${BACKEND_URI}/api/chat/${userName}`);
+      const userData = await axios.get(`${BACKEND_URI}/api/${userName}`);
+      const peopleData = await axios.get(`${BACKEND_URI}/api/people`);
       setuser(userData.data);
       setchats(res.data);
       setpeople(peopleData.data);
@@ -28,11 +28,12 @@ export const ChatsProvider = ({ children }) => {
 
   useEffect(() => {
     getChats();
-  }, [userName, newchatcreated]);
+  }, [userName]);
 
   return (
     <ChatContext.Provider
       value={{
+        BACKEND_URI,
         userName,
         setUserName,
         user,

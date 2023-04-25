@@ -36,7 +36,7 @@ const SelectUser = () => {
       </button>
       <button
         onClick={() => {
-          clickHandler("user-5");
+          clickHandler("user-4");
         }}
       >
         login as user-4

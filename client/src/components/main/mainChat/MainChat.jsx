@@ -3,15 +3,13 @@ import "./MainChat.css";
 import profilepic from "../../../assets/profilePic.jpg";
 import axios from "axios";
 import ChatContext from "../../../context/chatContext";
-import { io } from "socket.io-client";
 
-let socket, selectedChatCompare;
+let selectedChatCompare;
 const MainChat = ({ activeChat, socket }) => {
   const ref = useRef("");
-  const { user } = useContext(ChatContext);
+  const { user, BACKEND_URI } = useContext(ChatContext);
   const [message, setMessage] = useState("");
   const [messeges, setMesseges] = useState([]);
-  const [socketConnected, setsocketConnected] = useState(false);
   const handleChange = (event) => {
     setMessage(event.target.value);
   };
@@ -20,7 +18,7 @@ const MainChat = ({ activeChat, socket }) => {
     if (activeChat?._id) {
       try {
         const { data } = await axios.get(
-          `http://localhost:8080/api/messege/${activeChat._id}`
+          `${BACKEND_URI}/api/messege/${activeChat._id}`
         );
         setMesseges(data);
         socket.emit("join chat", activeChat?._id);
@@ -38,7 +36,7 @@ const MainChat = ({ activeChat, socket }) => {
     if (event.key === "Enter") {
       if (activeChat._id) {
         const { data } = await axios.post(
-          `http://localhost:8080/api/messege/${user._id}`,
+          `${BACKEND_URI}/api/messege/${user._id}`,
           { chatId: activeChat._id, content: message }
         );
 
@@ -48,7 +46,7 @@ const MainChat = ({ activeChat, socket }) => {
       } else {
         const createChat = async (b, c) => {
           const { data } = await axios.post(
-            `http://localhost:8080/api/chat/${user._id}`,
+            `${BACKEND_URI}/api/chat/${user._id}`,
             {
               userId: b,
             }
@@ -61,7 +59,7 @@ const MainChat = ({ activeChat, socket }) => {
           const { _id } = data;
           if (_id) {
             const { data } = await axios.post(
-              `http://localhost:8080/api/messege/${user._id}`,
+              `${BACKEND_URI}/api/messege/${user._id}`,
               { chatId: _id, content: c }
             );
             socket.emit("new messege", data);

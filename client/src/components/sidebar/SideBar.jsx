@@ -19,7 +19,7 @@ const SideBar = () => {
         <nav>
           <div className="sidebar-header-profilepic">
             <img src={profilepic} alt="" />
-            <p>{user.userName}</p>
+            <p>{user?.userName}</p>
           </div>
           <div className="sidebar-header-icon">
             <svg
@@ -40,7 +40,7 @@ const SideBar = () => {
           </div>
         </nav>
         {chats?.length !== 0 &&
-          chats.map((chat) => {
+          chats?.map((chat) => {
             return (
               <SingleChatHeader
                 chatName={chat?.users?.map((a) => {

@@ -51,8 +51,8 @@ const SideBarNewChat = ({ status, set, chats }) => {
         </div>
 
         {people?.length > 0
-          ? people.map((person) => {
-              if (person.userName !== user.userName)
+          ? people?.map((person) => {
+              if (person?.userName !== user?.userName)
                 return (
                   <>
                     <SingleChatHeader
