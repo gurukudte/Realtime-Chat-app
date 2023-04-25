@@ -1,0 +1,79 @@
+.main-chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.main-chat .main-chat-header {
+  padding: 0.5rem 1rem;
+  background-color: #202c33;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-chat .main-chat-header .main-chat-header-chatinfo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.main-chat .main-chat-header .main-chat-header-chatinfo .main-chat-header-profilepic img {
+  border-radius: 2.5rem;
+}
+.main-chat .main-chat-header .main-chat-header-options {
+  display: flex;
+  gap: 3rem;
+}
+.main-chat .main-chat-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.main-chat .main-chat-content .main-chat-content-wrapper {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.main-chat .main-chat-content .main-chat-content-wrapper .sender {
+  display: flex;
+  justify-content: flex-end;
+}
+.main-chat .main-chat-content .main-chat-content-wrapper .sender p {
+  padding: 0.5rem;
+  background-color: aqua;
+  border-radius: 0.5rem;
+  color: black;
+}
+.main-chat .main-chat-content .main-chat-content-wrapper .receiver {
+  display: flex;
+  justify-content: flex-start;
+}
+.main-chat .main-chat-content .main-chat-content-wrapper .receiver p {
+  background-color: burlywood;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: black;
+}
+.main-chat .main-chat-footer {
+  display: flex;
+  gap: 1.3rem;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #202c33;
+  height: 3.5rem;
+}
+.main-chat .main-chat-footer input {
+  height: 100%;
+  background-color: #2a3942;
+  border: 0.001rem solid #2a3942;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  caret-color: white;
+}
+.main-chat .main-chat-footer input:focus-visible {
+  outline: none;
+}/*# sourceMappingURL=MainChat.css.map */

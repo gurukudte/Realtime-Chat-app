@@ -1,0 +1,15 @@
+.App {
+  background-color: #111b21;
+  text-align: center;
+  padding: 1rem;
+}
+
+
+.layout {
+  height: 95.2vh;
+
+  display: grid;
+  grid:
+    "sidebar body" 1fr
+    / 30% 70%;
+}

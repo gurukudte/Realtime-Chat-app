@@ -1,0 +1,27 @@
+.sidebar {
+  grid-area: sidebar;
+  border-right:0.001rem solid #aebac1;
+  nav {
+    background: #202c33;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .sidebar-header-profilepic {
+      gap: 1rem;
+      display: flex;
+      align-items: center;
+      &:hover {
+        cursor: pointer;
+      }
+      img {
+        border-radius: 2.5rem;
+      }
+    }
+    .sidebar-header-icon {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

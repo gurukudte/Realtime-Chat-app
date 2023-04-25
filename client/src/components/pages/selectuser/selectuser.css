@@ -1,0 +1,13 @@
+.selectuser {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.selectuser button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.selectuser button:hover {
+  cursor: pointer;
+  background-color: aqua;
+}/*# sourceMappingURL=selectuser.css.map */

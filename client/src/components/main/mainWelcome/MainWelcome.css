@@ -1,0 +1,11 @@
+.main-welcome {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main-welcome svg {
+  height: 15rem;
+  width: 25rem;
+}/*# sourceMappingURL=MainWelcome.css.map */

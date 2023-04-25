@@ -1,0 +1,46 @@
+.sidebar-newchat {
+  position: relative;
+}
+.sidebar-newchat .sidebar-newchat-wrapper {
+  position: absolute;
+  z-index: 200;
+  top: -3.8rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-header {
+  display: flex;
+  gap: 3rem;
+  height: 5rem;
+  width: 100%;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #202c33;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-header svg:hover {
+  cursor: pointer;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-search {
+  background-color: #111b21;
+  padding: 0.5rem;
+  border-bottom: 0.001rem solid grey;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-search .sidebar-newchat-serch-background {
+  display: flex;
+  background-color: #202c33;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  align-items: center;
+  gap: 1rem;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-search .sidebar-newchat-serch-background svg {
+  height: 1rem;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-search .sidebar-newchat-serch-background input {
+  background: transparent;
+  border: none;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-search .sidebar-newchat-serch-background input:focus-visible {
+  outline: none;
+}/*# sourceMappingURL=SideBarNewChat.css.map */

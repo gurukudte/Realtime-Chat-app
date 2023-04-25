@@ -1,0 +1,26 @@
+.sidebar-chats {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+.sidebar-chats:hover {
+  cursor: pointer;
+  background-color: #202c33;
+}
+.sidebar-chats .sidebar-chats-dp img {
+  border-radius: 2.5rem;
+}
+.sidebar-chats .sidebar-chats-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.sidebar-chats .sidebar-chats-info .chatName {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.sidebar-chats .sidebar-chats-info .lastName {
+  font-size: 0.6rem;
+}/*# sourceMappingURL=SingleChatHeader.css.map */
