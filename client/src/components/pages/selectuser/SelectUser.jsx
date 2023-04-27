@@ -4,13 +4,15 @@ import ChatContext from "../../../context/chatContext";
 import { useNavigate } from "react-router-dom";
 
 const SelectUser = () => {
-  const { setUserName, people } = useContext(ChatContext);
+  const { setUserName } = useContext(ChatContext);
+
   const navigate = useNavigate();
   const clickHandler = (name) => {
     setUserName(name);
-    navigate("/chat");
+    setTimeout(() => {
+      navigate("/chat");
+    }, 350);
   };
-
   return (
     <div className="selectuser">
       <button

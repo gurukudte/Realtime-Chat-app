@@ -3,12 +3,24 @@ import "./SideBarNewChat.css";
 import ChatContext from "../../../context/chatContext";
 import SingleChatHeader from "../singlechatHeader/SingleChatHeader";
 
-const SideBarNewChat = ({ status, set, chats }) => {
-  const { setActiveChat, people, user, setchats } = useContext(ChatContext);
+const SideBarNewChat = ({ status, set }) => {
+  const { people, user } = useContext(ChatContext);
   const clickHandler = () => {
     set("hide");
   };
 
+  const newchats = [];
+  people.map((newpeoplechat) => {
+    if (newpeoplechat?.userName !== user?.userName) {
+      const newChat = {
+        id: newpeoplechat._id,
+        chatName: "sender",
+        isGroupChat: false,
+        users: [user, newpeoplechat],
+      };
+      newchats.push(newChat);
+    }
+  });
   return (
     <div className={`sidebar-newchat ${status}`}>
       <div className="sidebar-newchat-wrapper">
@@ -49,51 +61,7 @@ const SideBarNewChat = ({ status, set, chats }) => {
             <input type="text" placeholder="Search contacts" />
           </div>
         </div>
-
-        {people?.length > 0
-          ? people?.map((person) => {
-              if (person?.userName !== user?.userName)
-                return (
-                  <>
-                    <SingleChatHeader
-                      chatName={person?.userName}
-                      messegecontent={"Hi there! I a using MyChats"}
-                      clickHandler={() => {
-                        if (chats?.length === 0) {
-                          const newchat = {
-                            chatName: "sender",
-                            isGroupChat: false,
-                            users: [user, person],
-                          };
-                          setchats((oldArray) => [...oldArray, newchat]);
-                          clickHandler();
-                          setActiveChat(newchat);
-                        } else {
-                          const ids = [];
-                          chats.map((a) => {
-                            return a.users.map((b) => {
-                              return ids.push(b._id);
-                            });
-                          });
-                          if (ids.includes(person._id)) {
-                            console.log("chat already exist");
-                          } else {
-                            const newchat = {
-                              chatName: "sender",
-                              isGroupChat: false,
-                              users: [user, person],
-                            };
-                            setchats((oldArray) => [...oldArray, newchat]);
-                            clickHandler();
-                            setActiveChat(newchat);
-                          }
-                        }
-                      }}
-                    />
-                  </>
-                );
-            })
-          : ""}
+        <SingleChatHeader chats={newchats} />
       </div>
     </div>
   );

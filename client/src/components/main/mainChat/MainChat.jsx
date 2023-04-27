@@ -79,28 +79,28 @@ const MainChat = ({ activeChat, socket }) => {
   const MessegesHTML = () => {
     return (
       messeges?.length > 0 &&
-      messeges.map((mess) => {
+      messeges?.map((mess) => {
         return (
-          <>
-            <div
-              className={mess.sender._id === user._id ? "sender" : "receiver"}
-            >
-              {" "}
-              <p>{mess.content}</p>
-            </div>
-          </>
+          <div
+            key={mess?._id}
+            className={mess?.sender?._id === user?._id ? "sender" : "receiver"}
+          >
+            <p>{mess?.content}</p>
+          </div>
         );
       })
     );
   };
   useEffect(() => {
     MessegesHTML();
+    // eslint-disable-next-line
   }, [messeges]);
 
   useEffect(() => {
     getAllMesseges();
 
     selectedChatCompare = activeChat;
+    // eslint-disable-next-line
   }, [activeChat]);
 
   useEffect(() => {

@@ -4,8 +4,8 @@ import axios from "axios";
 const ChatContext = createContext();
 
 export const ChatsProvider = ({ children }) => {
-  const BACKEND_URI =
-    "https://realtime-chat-app-production-9e3b.up.railway.app";
+  const BACKEND_URI = "http://localhost:8080";
+  // ("https://realtime-chat-app-production-9e3b.up.railway.app");
   const [userName, setUserName] = useState("");
   const [user, setuser] = useState({});
   const [chats, setchats] = useState([]);
@@ -15,12 +15,14 @@ export const ChatsProvider = ({ children }) => {
 
   const getChats = async () => {
     try {
-      const res = await axios.get(`${BACKEND_URI}/api/chat/${userName}`);
-      const userData = await axios.get(`${BACKEND_URI}/api/${userName}`);
-      const peopleData = await axios.get(`${BACKEND_URI}/api/people`);
-      setuser(userData.data);
-      setchats(res.data);
-      setpeople(peopleData.data);
+      if (userName !== "") {
+        const userData = await axios.get(`${BACKEND_URI}/api/${userName}`);
+        const res = await axios.get(`${BACKEND_URI}/api/chat/${userName}`);
+        const peopleData = await axios.get(`${BACKEND_URI}/api/people`);
+        setuser(userData.data);
+        setchats(res.data);
+        setpeople(peopleData.data);
+      }
     } catch (error) {
       // console.log(error);
     }
@@ -53,3 +55,5 @@ export const ChatsProvider = ({ children }) => {
 };
 
 export default ChatContext;
+
+// chats?.map(()=>{})
