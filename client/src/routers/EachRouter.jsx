@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { SelectUser, Chat } from "../components";
+import { Register, Chat, Login } from "../components";
 
 const EachRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<SelectUser />} />
+      <Route path="/" element={<Register />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/chat" element={<Chat />} />
     </Routes>
   );

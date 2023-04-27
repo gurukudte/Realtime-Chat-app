@@ -17,6 +17,7 @@ const Chat = () => {
     if (userExist.length === 0) {
       navigate("/");
     }
+    // eslint-disable-next-line
   }, [user]);
 
   useEffect(() => {

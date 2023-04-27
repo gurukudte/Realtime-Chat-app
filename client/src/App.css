@@ -1,11 +1,11 @@
 .App {
   background-color: #111b21;
   text-align: center;
-  padding: 1rem;
 }
 
 
 .layout {
+  padding: 1rem;
   height: 95.2vh;
 
   display: grid;

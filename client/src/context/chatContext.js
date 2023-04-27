@@ -16,10 +16,8 @@ export const ChatsProvider = ({ children }) => {
   const getChats = async () => {
     try {
       if (userName !== "") {
-        const userData = await axios.get(`${BACKEND_URI}/api/${userName}`);
         const res = await axios.get(`${BACKEND_URI}/api/chat/${userName}`);
         const peopleData = await axios.get(`${BACKEND_URI}/api/people`);
-        setuser(userData.data);
         setchats(res.data);
         setpeople(peopleData.data);
       }
@@ -30,6 +28,7 @@ export const ChatsProvider = ({ children }) => {
 
   useEffect(() => {
     getChats();
+     // eslint-disable-next-line
   }, [userName]);
 
   return (

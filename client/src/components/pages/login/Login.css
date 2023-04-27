@@ -1,0 +1,62 @@
+.selectuser {
+  background-image: url("../../../assets/signupbg.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.selectuser .selectuser-signup-wrapper {
+  width: 30%;
+  color: black;
+  position: absolute;
+  top: 5rem;
+  right: 10rem;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1rem;
+}
+.selectuser .selectuser-signup-wrapper .selectuser-signup-wrapper-heading p {
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  color: #4b4e56;
+}
+.selectuser .selectuser-signup-wrapper .selectuser-signup-wrapper-form form {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.selectuser .selectuser-signup-wrapper .selectuser-signup-wrapper-form form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.selectuser .selectuser-signup-wrapper .selectuser-signup-wrapper-form form label input {
+  border: 0.02rem solid rgba(89, 84, 84, 0.5882352941);
+  width: 100%;
+  padding: 0 10px;
+  height: 2rem;
+  border-radius: 0.3rem;
+}
+.selectuser .selectuser-signup-wrapper .selectuser-signup-wrapper-form form label input:focus-visible {
+  outline: 0.01rem solid rgb(28, 28, 145);
+}
+.selectuser .selectuser-signup-wrapper .selectuser-signup-wrapper-form form button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: blue;
+  color: white;
+}
+.selectuser .selectuser-signup-wrapper .selectuser-signup-wrapper-form form button:hover {
+  outline: none;
+  background-color: #3c3cbe;
+  cursor: pointer;
+}
+.selectuser .selectuser-signup-wrapper .selectuser-signup-wrapper-signin p {
+  padding-top: 1rem;
+  font-size: 0.7rem;
+}/*# sourceMappingURL=Login.css.map */

@@ -14,6 +14,7 @@ const MainChat = ({ activeChat, socket }) => {
     setMessage(event.target.value);
   };
 
+  //getting all messeges for the active-chat
   const getAllMesseges = async () => {
     if (activeChat?._id) {
       try {
@@ -76,6 +77,8 @@ const MainChat = ({ activeChat, socket }) => {
       }
     }
   };
+
+  //generating messege threads as HTML
   const MessegesHTML = () => {
     return (
       messeges?.length > 0 &&
@@ -91,11 +94,14 @@ const MainChat = ({ activeChat, socket }) => {
       })
     );
   };
+
+  //Generating messeges HTML whenever messeges added
   useEffect(() => {
     MessegesHTML();
     // eslint-disable-next-line
   }, [messeges]);
 
+  //Getting all messeges whenever active-chat changes
   useEffect(() => {
     getAllMesseges();
 
@@ -103,6 +109,7 @@ const MainChat = ({ activeChat, socket }) => {
     // eslint-disable-next-line
   }, [activeChat]);
 
+  //Socket for loading incoming messseges-real-time
   useEffect(() => {
     socket.on("messege recieved", (newMessegeReceived) => {
       console.log(selectedChatCompare._id);

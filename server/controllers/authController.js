@@ -6,14 +6,14 @@ dotenv.config();
 const Secret = process.env.SECRET_KEY;
 
 const register = async (req, res) => {
-  const { phone, userName, password } = req.body;
+  const { email, userName, password } = req.body;
 
   try {
-    const userExist = await User.find({ phone });
+    const userExist = await User.find({ email });
     console.log(userExist);
     if (userExist.length === 0) {
       const user = await User.create({
-        phone,
+        email,
         userName,
         password: CryptoJS.AES.encrypt(password, Secret),
       });
