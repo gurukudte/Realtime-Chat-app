@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Axios from "../../../utils/axiosAPI";
 
 const SelectUser = () => {
-  const { setuser, setUserName } = useContext(ChatContext);
+  const { setuser, setUserName, BACKEND_URI } = useContext(ChatContext);
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -19,7 +19,7 @@ const SelectUser = () => {
     //sending login request to backend
     const loginResponse = await Axios(
       "POST",
-      "http://localhost:8080/api/auth/login",
+      `${BACKEND_URI}/api/auth/login`,
       userData
     );
 
