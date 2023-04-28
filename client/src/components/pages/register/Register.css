@@ -67,4 +67,13 @@
 .selectuser .selectuser-signup-wrapper .selectuser-signup-wrapper-signin p {
   padding-top: 1rem;
   font-size: 0.7rem;
+}
+
+@media (max-width: 750px) {
+  .selectuser .selectuser-signup-wrapper {
+    padding: 1rem;
+    top: 2rem;
+    width: 81%;
+    left: 2rem;
+  }
 }/*# sourceMappingURL=Register.css.map */

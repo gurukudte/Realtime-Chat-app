@@ -51,7 +51,7 @@
           border-radius: 0.5rem;
           background-color: blue;
           color: white;
-          &:hover{
+          &:hover {
             outline: none;
             background-color: #3c3cbe;
             cursor: pointer;
@@ -72,6 +72,17 @@
         padding-top: 1rem;
         font-size: 0.7rem;
       }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .selectuser {
+    .selectuser-signup-wrapper {
+      padding: 1rem;
+      top: 2rem;
+      width: 81%;
+      left: 2rem;
     }
   }
 }

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Axios from "../../../utils/axiosAPI";
 
 const SelectUser = () => {
-  const { setuser,setUserName } = useContext(ChatContext);
+  const { setuser, setUserName } = useContext(ChatContext);
   const [userData, setUserData] = useState({
     userName: "",
     email: "",
@@ -27,7 +27,7 @@ const SelectUser = () => {
         userData
       );
       if (loginResponse.status === 200) {
-        setUserName(loginResponse.data.userName)
+        setUserName(loginResponse.data.userName);
         setuser(loginResponse.data);
         setUserData({
           userName: "",

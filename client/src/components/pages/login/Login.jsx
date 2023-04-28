@@ -80,7 +80,7 @@ const SelectUser = () => {
         </div>
         <div className="selectuser-signup-wrapper-signin">
           <p>
-            Don't have an account?<a href="/register">Register</a>
+            Don't have an account?<a href="/">Register</a>
           </p>
         </div>
       </div>
