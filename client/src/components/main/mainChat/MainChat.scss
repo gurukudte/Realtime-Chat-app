@@ -25,12 +25,34 @@
     }
   }
   .main-chat-content {
+    height: 78vh;
+    overflow-y: scroll;
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      width: 5px;
+      border-radius: 2.5px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #202c33;
+      border-radius: 2.5rem;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
     .main-chat-content-wrapper {
+      height: 100%;
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -66,7 +88,7 @@
     background-color: #202c33;
     height: 3.5rem;
     input {
-      color:white;
+      color: white;
       height: 100%;
       background-color: #2a3942;
       border: 0.001rem solid #2a3942;

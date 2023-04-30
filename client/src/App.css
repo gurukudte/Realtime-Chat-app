@@ -5,11 +5,8 @@
 
 
 .layout {
-  padding: 1rem;
-  height: 95.2vh;
-
   display: grid;
-  grid:
-    "sidebar body" 1fr
-    / 30% 70%;
+  grid: "sidebar body" 1fr/30% 70%;
+  height: 100vh;
+  padding: 1rem;
 }

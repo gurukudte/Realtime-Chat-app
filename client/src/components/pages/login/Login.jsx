@@ -50,7 +50,6 @@ const SelectUser = () => {
         </div>
         <div className="selectuser-signup-wrapper-form">
           <form
-            autoComplete="true"
             onSubmit={(e) => {
               click(e);
             }}
@@ -90,3 +89,5 @@ const SelectUser = () => {
 };
 
 export default SelectUser;
+
+
