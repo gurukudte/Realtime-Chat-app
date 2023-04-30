@@ -2,10 +2,10 @@ import axios from "axios";
 
 const Axios = (method, url, data) => {
   let request;
-  if (method == "GET") {
+  if (method === "GET") {
     request = axios.get(url);
   }
-  if (method == "POST") {
+  if (method === "POST") {
     request = axios.post(url, data);
   }
 
