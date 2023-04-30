@@ -4,7 +4,7 @@ import axios from "axios";
 const ChatContext = createContext();
 
 export const ChatsProvider = ({ children }) => {
-  const BACKEND_URI = "https://realtime-chat-app-production-f1de.up.railway.app";
+  const BACKEND_URI = process.env.REACT_APP_SERVER_URI;
   const [userName, setUserName] = useState("");
   const [user, setuser] = useState({});
   const [chats, setchats] = useState([]);
