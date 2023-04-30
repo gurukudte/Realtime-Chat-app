@@ -5,7 +5,7 @@ const ChatContext = createContext();
 
 export const ChatsProvider = ({ children }) => {
   const BACKEND_URI =
-    "https://realtime-chat-app-production-9658.up.railway.app";
+    "https://realtime-chat-app-production-f1de.up.railway.app/";
   const [userName, setUserName] = useState("");
   const [user, setuser] = useState({});
   const [chats, setchats] = useState([]);
