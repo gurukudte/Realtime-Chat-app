@@ -5,6 +5,7 @@ import authRouter from "./routes/authRouter.js";
 import cors from "cors";
 import chatRouter from "./routes/chatRouter.js";
 import messegeRouter from "./routes/messegeRouter.js";
+import homeRouter from "./routes/homeRouter.js";
 import { Server } from "socket.io";
 dotenv.config();
 const app = express();
@@ -17,6 +18,7 @@ app.use("/api/auth", authRouter);
 app.use("/api", chatRouter);
 app.use("/api/messege", messegeRouter);
 
+app.use("/home", homeRouter);
 app.get("/", (req, res) => {
   res.status(200).json("Welcome to chat-app");
 });
