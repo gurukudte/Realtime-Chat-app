@@ -17,6 +17,10 @@ app.use("/api/auth", authRouter);
 app.use("/api", chatRouter);
 app.use("/api/messege", messegeRouter);
 
+app.get("/", (req, res) => {
+  res.status(200).json("Welcome to chat-app");
+});
+
 const server = app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);
   connectDB();
