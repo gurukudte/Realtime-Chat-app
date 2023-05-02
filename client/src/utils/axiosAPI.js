@@ -8,6 +8,12 @@ const Axios = (method, url, data) => {
   if (method === "POST") {
     request = axios.post(url, data);
   }
+  if (method === "DELETE") {
+    request = axios.post(url);
+  }
+  if (method === "PATCH") {
+    request = axios.post(url, data);
+  }
 
   return request;
 };

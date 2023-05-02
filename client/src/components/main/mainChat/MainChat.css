@@ -23,13 +23,15 @@
   display: flex;
   gap: 3rem;
 }
+.main-chat .main-chat-header .main-chat-header-options svg {
+  cursor: pointer;
+}
 .main-chat .main-chat-content {
   height: 78vh;
   overflow-y: scroll;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-direction: column-reverse;
   /* Track */
   /* Handle */
   /* Handle on hover */
@@ -53,6 +55,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 0.5rem;
 }
 .main-chat .main-chat-content .main-chat-content-wrapper .sender {

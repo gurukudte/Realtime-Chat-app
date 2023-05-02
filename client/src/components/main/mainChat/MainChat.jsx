@@ -36,14 +36,19 @@ const MainChat = ({ activeChat, socket }) => {
   const handleKeyDown = async (event) => {
     if (event.key === "Enter") {
       if (activeChat._id) {
+        const newMessege = {
+          chat: activeChat,
+          content: message,
+          sender: user,
+        };
+        ref.current.value = "";
+
+        setMesseges([...messeges, newMessege]);
+        socket.emit("new messege", newMessege);
         const { data } = await axios.post(
           `${BACKEND_URI}/api/messege/${user._id}`,
           { chatId: activeChat._id, content: message }
         );
-
-        socket.emit("new messege", data);
-        setMesseges([...messeges, data]);
-        ref.current.value = "";
       } else {
         const createChat = async (b, c) => {
           const { data } = await axios.post(
@@ -77,7 +82,7 @@ const MainChat = ({ activeChat, socket }) => {
       }
     }
   };
-
+  console.table(messeges);
   //generating messege threads as HTML
   const MessegesHTML = () => {
     return (
@@ -85,7 +90,7 @@ const MainChat = ({ activeChat, socket }) => {
       messeges?.map((mess) => {
         return (
           <div
-            key={mess?._id}
+            key={mess?._id ? mess?.id : message}
             className={mess?.sender?._id === user?._id ? "sender" : "receiver"}
           >
             <p>{mess?.content}</p>

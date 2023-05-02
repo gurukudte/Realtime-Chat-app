@@ -22,6 +22,9 @@
     .main-chat-header-options {
       display: flex;
       gap: 3rem;
+      svg{
+        cursor: pointer;
+      }
     }
   }
   .main-chat-content {
@@ -29,8 +32,8 @@
     overflow-y: scroll;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+
     &::-webkit-scrollbar {
       width: 5px;
     }
@@ -56,6 +59,7 @@
       padding: 1rem;
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
       gap: 0.5rem;
       .sender {
         display: flex;
