@@ -61,7 +61,7 @@ const SideBarNewChat = ({ status, set }) => {
             <input type="text" placeholder="Search contacts" />
           </div>
         </div>
-        <SingleChatHeader chats={newchats} />
+        <SingleChatHeader chats={newchats} clickHandler={clickHandler} />
       </div>
     </div>
   );

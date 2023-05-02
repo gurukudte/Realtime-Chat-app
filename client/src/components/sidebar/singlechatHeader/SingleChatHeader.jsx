@@ -4,7 +4,7 @@ import profilepic from "../../../assets/profilePic.jpg";
 import ChatContext from "../../../context/chatContext";
 import { useContext } from "react";
 
-const SingleChatHeader = ({ chats }) => {
+const SingleChatHeader = ({ chats, clickHandler }) => {
   const { user, setActiveChat } = useContext(ChatContext);
 
   return (
@@ -16,6 +16,7 @@ const SingleChatHeader = ({ chats }) => {
             className="sidebar-chats"
             onClick={() => {
               setActiveChat(chat);
+              typeof clickHandler !== "undefined" && clickHandler();
             }}
           >
             <div className="sidebar-chats-dp">

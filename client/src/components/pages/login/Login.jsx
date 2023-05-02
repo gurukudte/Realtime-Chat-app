@@ -57,7 +57,9 @@ const SelectUser = () => {
             <label htmlFor="email">
               Email address
               <input
+                autoComplete="username"
                 type="email"
+                autoFocus="autoFocus"
                 value={userData.email}
                 onChange={(e) => {
                   InputchangeHandler(e.target.value, "email");
@@ -67,6 +69,7 @@ const SelectUser = () => {
             <label htmlFor="password">
               Password
               <input
+                autoComplete="password"
                 type="password"
                 value={userData.password}
                 minLength={6}
@@ -89,5 +92,3 @@ const SelectUser = () => {
 };
 
 export default SelectUser;
-
-
