@@ -1,12 +1,22 @@
+import React, { useContext } from "react";
+import ChatContext from "../context/chatContext";
 import { Route, Routes } from "react-router-dom";
-import { Register, Chat, Login } from "../components";
+import { Register, Chat, Login, Protected } from "../components";
 
 const EachRouter = () => {
+  const { isLoggedin } = useContext(ChatContext);
   return (
     <Routes>
       <Route path="/" element={<Register />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/chat" element={<Chat />} />
+      <Route
+        path="/chat"
+        element={
+          <Protected isLoggedin={isLoggedin}>
+            <Chat />
+          </Protected>
+        }
+      />
     </Routes>
   );
 };

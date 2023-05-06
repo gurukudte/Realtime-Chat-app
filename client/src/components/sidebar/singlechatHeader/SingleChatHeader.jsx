@@ -14,7 +14,7 @@ const SingleChatHeader = ({ chats, clickHandler }) => {
           <li
             key={chat?._id ? chat?._id : chat?.id}
             className="sidebar-chats"
-            onClick={() => {
+            onClick={() => { 
               setActiveChat(chat);
               typeof clickHandler !== "undefined" && clickHandler();
             }}

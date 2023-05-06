@@ -1,17 +1,18 @@
 import React, { useContext, useState } from "react";
-import "./Register.css";
 import ChatContext from "../../../context/chatContext";
 import { useNavigate } from "react-router-dom";
 import Axios from "../../../utils/axiosAPI";
+import "./Register.css";
 
 const SelectUser = () => {
-  const { setuser, setUserName ,BACKEND_URI} = useContext(ChatContext);
+  const { setuser, BACKEND_URI, setisLoggedin } = useContext(ChatContext);
   const [userData, setUserData] = useState({
     userName: "",
     email: "",
     password: "",
   });
   const navigate = useNavigate();
+
   const click = async (event) => {
     event.preventDefault();
     console.log(userData);
@@ -27,16 +28,14 @@ const SelectUser = () => {
         userData
       );
       if (loginResponse.status === 200) {
-        setUserName(loginResponse.data.userName);
         setuser(loginResponse.data);
         setUserData({
           userName: "",
           email: "",
           password: "",
         });
-        setTimeout(() => {
-          navigate("/chat");
-        }, 350);
+        setisLoggedin(true);
+        navigate("/chat");
       }
     }
   };

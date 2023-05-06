@@ -1,28 +1,38 @@
 import express from "express";
-import connectDB from "./config/connect.js";
+import morgan from "morgan";
+import helmet from "helmet";
 import dotenv from "dotenv";
-import authRouter from "./routes/authRouter.js";
 import cors from "cors";
+import connectDB from "./config/connect.js";
+import authRouter from "./routes/authRouter.js";
 import chatRouter from "./routes/chatRouter.js";
 import messegeRouter from "./routes/messegeRouter.js";
 import homeRouter from "./routes/homeRouter.js";
 import { Server } from "socket.io";
 dotenv.config();
+
 const app = express();
 
 const PORT = process.env.PORT || 8080;
 
+//Express middlewears
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
+app.use(morgan("dev"));
+
+//Express Routes
 app.use("/api/auth", authRouter);
 app.use("/api", chatRouter);
 app.use("/api/messege", messegeRouter);
 
+//Express test-routes
 app.use("/home", homeRouter);
 app.get("/", (req, res) => {
   res.status(200).json("Welcome to chat-app");
 });
 
+//socket Server
 const server = app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);
   connectDB();
@@ -35,8 +45,9 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
+  console.log(socket.handshake.query);
   console.log("connected to socket.io");
-
+  
   socket.on("setup", (userData) => {
     socket.join(userData?._id);
     // console.log(userData?._id);

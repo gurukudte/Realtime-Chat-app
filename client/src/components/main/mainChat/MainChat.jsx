@@ -1,35 +1,18 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./MainChat.css";
 import profilepic from "../../../assets/profilePic.jpg";
 import axios from "axios";
 import ChatContext from "../../../context/chatContext";
 
-let selectedChatCompare;
-const MainChat = ({ activeChat, socket }) => {
+// let selectedChatCompare;
+const MainChat = () => {
   const ref = useRef("");
-  const { user, BACKEND_URI } = useContext(ChatContext);
+  const { user, BACKEND_URI, socket, messeges, setMesseges, activeChat } =
+    useContext(ChatContext);
   const [message, setMessage] = useState("");
-  const [messeges, setMesseges] = useState([]);
+
   const handleChange = (event) => {
     setMessage(event.target.value);
-  };
-
-  //getting all messeges for the active-chat
-  const getAllMesseges = async () => {
-    if (activeChat?._id) {
-      try {
-        const { data } = await axios.get(
-          `${BACKEND_URI}/api/messege/${activeChat._id}`
-        );
-        setMesseges(data);
-        socket.emit("join chat", activeChat?._id);
-        socket.emit("join public", "public");
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      setMesseges([]);
-    }
   };
 
   //sending messege to backend to create a chat & send messege
@@ -44,7 +27,7 @@ const MainChat = ({ activeChat, socket }) => {
         ref.current.value = "";
 
         setMesseges([...messeges, newMessege]);
-        socket.emit("new messege", newMessege);
+        socket.emit("new messege", newMessege); 
         const { data } = await axios.post(
           `${BACKEND_URI}/api/messege/${user._id}`,
           { chatId: activeChat._id, content: message }
@@ -82,53 +65,27 @@ const MainChat = ({ activeChat, socket }) => {
       }
     }
   };
-  console.table(messeges);
+
   //generating messege threads as HTML
   const MessegesHTML = () => {
-    return (
-      messeges?.length > 0 &&
-      messeges?.map((mess) => {
-        return (
-          <div
-            key={mess?._id ? mess?.id : message}
-            className={mess?.sender?._id === user?._id ? "sender" : "receiver"}
-          >
-            <p>{mess?.content}</p>
-          </div>
-        );
-      })
-    );
+    if (messeges?.length > 0) {
+      return (
+        messeges?.length > 0 &&
+        messeges?.map((mess) => {
+          return (
+            <div
+              key={mess?._id ? mess?._id : message}
+              className={
+                mess?.sender?._id === user?._id ? "sender" : "receiver"
+              }
+            >
+              <p>{mess?.content}</p>
+            </div>
+          );
+        })
+      );
+    }
   };
-
-  //Generating messeges HTML whenever messeges added
-  useEffect(() => {
-    MessegesHTML();
-    // eslint-disable-next-line
-  }, [messeges]);
-
-  //Getting all messeges whenever active-chat changes
-  useEffect(() => {
-    getAllMesseges();
-
-    selectedChatCompare = activeChat;
-    // eslint-disable-next-line
-  }, [activeChat]);
-
-  //Socket for loading incoming messseges-real-time
-  useEffect(() => {
-    socket.on("messege recieved", (newMessegeReceived) => {
-      console.log(selectedChatCompare._id);
-      console.log(newMessegeReceived._id);
-      if (
-        !selectedChatCompare ||
-        selectedChatCompare._id === newMessegeReceived._id
-      ) {
-      } else {
-        console.log(newMessegeReceived);
-        setMesseges([...messeges, newMessegeReceived]);
-      }
-    });
-  });
 
   return (
     <div className="main-chat">

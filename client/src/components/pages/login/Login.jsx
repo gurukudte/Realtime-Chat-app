@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Axios from "../../../utils/axiosAPI";
 
 const SelectUser = () => {
-  const { setuser, setUserName, BACKEND_URI } = useContext(ChatContext);
+  const { setuser, BACKEND_URI, setisLoggedin } = useContext(ChatContext);
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -25,15 +25,14 @@ const SelectUser = () => {
 
     //checking that loginresponse is a success & proceeding for chat page
     if (loginResponse.status === 200) {
-      setUserName(loginResponse.data.userName);
       setuser(loginResponse.data);
       setUserData({
         email: "",
         password: "",
       });
-      setTimeout(() => {
-        navigate("/chat");
-      }, 350);
+      localStorage.setItem("user", JSON.stringify(loginResponse.data));
+      setisLoggedin(true);
+      navigate("/chat");
     }
   };
 
