@@ -14,20 +14,22 @@ export const ChatsProvider = ({ children }) => {
   const [activeChat, setActiveChat] = useState({});
   const [messeges, setMesseges] = useState([]);
 
+  const userExist = Object.keys(user).length;
+
   const getChats = async () => {
     try {
       if (Object.keys(user).length > 0) {
         const res = await axios.get(`${BACKEND_URI}/api/chat/${user.userName}`);
         const peopleData = await axios.get(`${BACKEND_URI}/api/people`);
-        setpeople(peopleData.data)
+        setpeople(peopleData.data);
         setchats(res.data);
       } else {
-        const userExist = JSON.parse(localStorage.getItem("user"));
-        console.log(userExist);
-        if (userExist) {
-          setuser(userExist);
-          setisLoggedin(true);
-        }
+        // const userExist = JSON.parse(localStorage.getItem("user"));
+        // console.log(userExist);
+        // if (userExist) {
+        //   setuser(userExist);
+        //   setisLoggedin(true);
+        // }
       }
     } catch (error) {
       // console.log(error);
@@ -43,7 +45,6 @@ export const ChatsProvider = ({ children }) => {
         );
         setMesseges(data);
         socket.emit("join chat", activeChat?._id);
-        socket.emit("join public", "public");
       } catch (error) {
         console.log(error);
       }
@@ -53,8 +54,19 @@ export const ChatsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    socket = io(BACKEND_URI);
-    socket.emit("setup", user);
+    if (userExist > 0) {
+      socket = io(BACKEND_URI);
+      socket.emit("setup", user);
+      socket.emit("join public", "public");
+
+      setInterval(() => {
+        if (!document.hidden) {
+          socket.emit("online", user);
+        } else {
+          socket.emit("disconnected", user);
+        }
+      }, 5000);
+    }
     getChats();
     // eslint-disable-next-line
   }, [user]);
@@ -67,18 +79,39 @@ export const ChatsProvider = ({ children }) => {
   }, [activeChat]);
 
   useEffect(() => {
-    socket.on("chat recieved", (newChat) => {
-      setchats([...chats, newChat.chat]);
-    });
-    socket.on("messege recieved", (newMessegeReceived) => {
-      if (
-        !selectedChatCompare ||
-        selectedChatCompare._id === newMessegeReceived._id
-      ) {
-      } else {
-        setMesseges([...messeges, newMessegeReceived]);
+    if (Object.keys(user).length > 0) {
+      console.log("hi");
+    }
+  }, [messeges]);
+
+  useEffect(() => {
+    if (activeChat?._id) {
+      try {
+      } catch (error) {
+        console.log(error);
       }
-    });
+    }
+  });
+
+  useEffect(() => {
+    if (activeChat?._id) {
+      try {
+        socket.on("chat recieved", (newChat) => {
+          setchats([...chats, newChat.chat]);
+        });
+        socket.on("messege recieved", (newMessegeReceived) => {
+          if (
+            !selectedChatCompare ||
+            selectedChatCompare._id === newMessegeReceived._id
+          ) {
+          } else {
+            setMesseges([...messeges, newMessegeReceived]);
+          }
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
   });
 
   return (

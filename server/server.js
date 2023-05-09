@@ -47,7 +47,7 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log(socket.handshake.query);
   console.log("connected to socket.io");
-  
+
   socket.on("setup", (userData) => {
     socket.join(userData?._id);
     // console.log(userData?._id);
