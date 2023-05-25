@@ -24,15 +24,14 @@ export const ChatsProvider = ({ children }) => {
         setpeople(peopleData.data);
         setchats(res.data);
       } else {
-        // const userExist = JSON.parse(localStorage.getItem("user"));
-        // console.log(userExist);
-        // if (userExist) {
-        //   setuser(userExist);
-        //   setisLoggedin(true);
-        // }
+        const userExist = JSON.parse(localStorage.getItem("user"));
+        if (userExist) {
+          setuser(userExist);
+          setisLoggedin(true);
+        }
       }
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
 
@@ -77,12 +76,6 @@ export const ChatsProvider = ({ children }) => {
     selectedChatCompare = activeChat;
     // eslint-disable-next-line
   }, [activeChat]);
-
-  useEffect(() => {
-    if (Object.keys(user).length > 0) {
-      console.log("hi");
-    }
-  }, [messeges]);
 
   useEffect(() => {
     if (activeChat?._id) {

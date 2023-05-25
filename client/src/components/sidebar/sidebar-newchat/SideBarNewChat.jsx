@@ -4,13 +4,26 @@ import ChatContext from "../../../context/chatContext";
 import SingleChatHeader from "../singlechatHeader/SingleChatHeader";
 
 const SideBarNewChat = ({ status, set }) => {
-  const { people, user } = useContext(ChatContext);
+  const { people, user, chats } = useContext(ChatContext);
   const clickHandler = () => {
     set("hide");
   };
 
+  const chatusers = [];
+  chats.map((chat) => {
+    chat.users.map((chatuser) => {
+      if (chatuser.userName !== user.userName) {
+        chatusers.push(chatuser.userName);
+      }
+    });
+  });
+
+  const newchattocreate = people.filter(
+    (person) => !chatusers.includes(person.userName)
+  );
+
   const newchats = [];
-  people.map((newpeoplechat) => {
+  newchattocreate.map((newpeoplechat) => {
     if (newpeoplechat?.userName !== user?.userName) {
       const newChat = {
         id: newpeoplechat._id,
@@ -61,7 +74,7 @@ const SideBarNewChat = ({ status, set }) => {
             <input type="text" placeholder="Search contacts" />
           </div>
         </div>
-        <SingleChatHeader chats={newchats} clickHandler={clickHandler} />
+        <SingleChatHeader newchats={newchats} clickHandler={clickHandler} />
       </div>
     </div>
   );

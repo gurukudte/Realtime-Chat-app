@@ -4,29 +4,32 @@ import profilepic from "../../../assets/profilePic.jpg";
 import ChatContext from "../../../context/chatContext";
 import { useContext } from "react";
 
-const SingleChatHeader = ({ chats, clickHandler }) => {
-  const { user, setActiveChat } = useContext(ChatContext);
+const SingleChatHeader = ({ newchats, clickHandler }) => {
+  const { user, setActiveChat, chats } = useContext(ChatContext);
 
   return (
     <>
-      {chats?.map((chat) => {
+      {newchats?.map((chat, index) => {
         return (
           <li
-            key={chat?._id ? chat?._id : chat?.id}
+            key={index}
             className="sidebar-chats"
-            onClick={() => { 
+            onClick={() => {
               setActiveChat(chat);
-              typeof clickHandler !== "undefined" && clickHandler();
+              if (typeof clickHandler !== "undefined") {
+                clickHandler();
+                chats.push(chat);
+              }
             }}
           >
             <div className="sidebar-chats-dp">
               <img src={profilepic} alt="" />
             </div>
             <div className="sidebar-chats-info">
-              {chat?.users?.map((chatuser) => {
+              {chat?.users?.map((chatuser, index) => {
                 if (chatuser?.userName !== user?.userName) {
                   return (
-                    <p key={chatuser?._id} className="chatName">
+                    <p key={index} className="chatName">
                       {chatuser?.userName}
                     </p>
                   );
@@ -39,7 +42,6 @@ const SingleChatHeader = ({ chats, clickHandler }) => {
       })}
     </>
   );
-  // console.log(chatName)
 };
 
 export default SingleChatHeader;

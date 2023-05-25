@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ChatContext from "../../../context/chatContext";
 import { useNavigate } from "react-router-dom";
 import Axios from "../../../utils/axiosAPI";
 import "./Register.css";
 
 const SelectUser = () => {
-  const { setuser, BACKEND_URI, setisLoggedin } = useContext(ChatContext);
+  const { setuser, BACKEND_URI, setisLoggedin, user } = useContext(ChatContext);
   const [userData, setUserData] = useState({
     userName: "",
     email: "",
@@ -42,6 +42,12 @@ const SelectUser = () => {
   const InputchangeHandler = (value, field) => {
     setUserData({ ...userData, [field]: value });
   };
+
+  useEffect(() => {
+    if (Object.keys(user).length > 0) {
+      navigate("/chat");
+    }
+  }, [user]);
   return (
     <div className="selectuser">
       <div className="selectuser-signup-wrapper">
