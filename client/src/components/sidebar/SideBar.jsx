@@ -40,17 +40,12 @@ const SideBar = () => {
             <div className="sidebar-header-icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
+                fill="#aebac1"
+                className="icon-chat"
+                viewBox="0 0 16 16"
                 onClick={clickHandler}
               >
-                <path
-                  stroke="#aebac1"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M8 8h8m-8 4h5m-6 4v5l5-5h8V4H4v12h3z"
-                ></path>
+                <path d="M0 2a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H4.414a1 1 0 00-.707.293L.854 15.146A.5.5 0 010 14.793V2zm3.5 1a.5.5 0 000 1h9a.5.5 0 000-1h-9zm0 2.5a.5.5 0 000 1h9a.5.5 0 000-1h-9zm0 2.5a.5.5 0 000 1h5a.5.5 0 000-1h-5z"></path>
               </svg>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

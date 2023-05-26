@@ -135,7 +135,12 @@ const MainChat = () => {
       <div className="main-chat-footer">
         <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 20 20">
           <g>
-            <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="0.5">
+            <g
+              fill="#aebac1"
+              fillRule="evenodd"
+              stroke="none"
+              strokeWidth="0.5"
+            >
               <g fill="#aebac1" transform="translate(-380 -5759)">
                 <g transform="translate(56 160)">
                   <path d="M340 5607a2 2 0 11-3.999.001A2 2 0 01340 5607m-10 2a2 2 0 11-.001-3.999A2 2 0 01330 5609m8.904 2.453c-.962 5.478-8.846 5.374-9.808-.104-.105-.598.386-.934.994-.934h7.82c.608 0 1.099.44.994 1.038M334 5617c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8m0-18c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10"></path>
@@ -148,8 +153,8 @@ const MainChat = () => {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
+          strokeWidth={1.8}
+          stroke="#aebac1"
           className="w-6 h-6"
         >
           <path
@@ -168,10 +173,10 @@ const MainChat = () => {
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
+          fill="#aebac1"
           viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
+          strokeWidth={2}
+          stroke="#aebac1"
           className="w-6 h-6"
         >
           <path

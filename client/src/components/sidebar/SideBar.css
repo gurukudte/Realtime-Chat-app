@@ -25,6 +25,9 @@
   gap: 1rem;
   align-items: center;
 }
+.sidebar nav .sidebar-header-icon .icon-chat {
+  height: 1.1rem;
+}
 .sidebar nav .sidebar-header-icon .icon-options {
   height: 1rem;
 }
