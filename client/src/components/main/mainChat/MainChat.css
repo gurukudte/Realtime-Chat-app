@@ -5,7 +5,7 @@
   height: 100%;
 }
 .main-chat .main-chat-header {
-  padding: 0.5rem 1rem;
+  padding: 0.38rem 1rem;
   background-color: #202c33;
   display: flex;
   justify-content: space-between;
@@ -21,7 +21,11 @@
 }
 .main-chat .main-chat-header .main-chat-header-options {
   display: flex;
-  gap: 3rem;
+  gap: 1rem;
+  align-items: center;
+}
+.main-chat .main-chat-header .main-chat-header-options .icon-options {
+  height: 1rem;
 }
 .main-chat .main-chat-header .main-chat-header-options svg {
   cursor: pointer;
@@ -64,19 +68,19 @@
 }
 .main-chat .main-chat-content .main-chat-content-wrapper .sender p {
   padding: 0.5rem;
-  background-color: aqua;
+  background-color: #005c4b;
   border-radius: 0.5rem;
-  color: black;
+  color: #e9edef;
 }
 .main-chat .main-chat-content .main-chat-content-wrapper .receiver {
   display: flex;
   justify-content: flex-start;
 }
 .main-chat .main-chat-content .main-chat-content-wrapper .receiver p {
-  background-color: burlywood;
+  background-color: #202c33;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  color: black;
+  color: white;
 }
 .main-chat .main-chat-footer {
   display: flex;

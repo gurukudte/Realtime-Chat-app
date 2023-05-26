@@ -21,6 +21,10 @@
     .sidebar-header-icon {
       display: flex;
       gap: 1rem;
+      align-items: center;
+      .icon-options {
+        height: 1rem;
+      }
       .logout {
         position: absolute;
         top: 4.2rem;

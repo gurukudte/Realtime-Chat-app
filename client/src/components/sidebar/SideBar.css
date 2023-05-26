@@ -23,6 +23,10 @@
 .sidebar nav .sidebar-header-icon {
   display: flex;
   gap: 1rem;
+  align-items: center;
+}
+.sidebar nav .sidebar-header-icon .icon-options {
+  height: 1rem;
 }
 .sidebar nav .sidebar-header-icon .logout {
   position: absolute;

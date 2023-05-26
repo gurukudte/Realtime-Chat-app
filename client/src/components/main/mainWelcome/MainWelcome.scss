@@ -1,12 +1,12 @@
-.main-welcome{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    svg{
-        height: 15rem;
-        width: 25rem;
-    }
+.main-welcome {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.3rem solid #005c4b;
+  svg {
+    height: 15rem;
+    width: 25rem;
+  }
 }
