@@ -3,7 +3,7 @@ import {
   getChats,
   getallUsers,
   userDetail,
-  accessChat
+  accessChat,
 } from "../controllers/chatController.js";
 
 const chatRouter = express.Router();
@@ -12,6 +12,5 @@ chatRouter.get("/chat/:user", getChats);
 chatRouter.post("/chat/:currentUserid", accessChat);
 chatRouter.get("/people", getallUsers);
 chatRouter.get("/:user", userDetail);
-
 
 export default chatRouter;

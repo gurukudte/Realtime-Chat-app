@@ -42,4 +42,35 @@
 }
 .sidebar nav .sidebar-header-icon:hover {
   cursor: pointer;
+}
+.sidebar .sidebar-chat-search-wrapper {
+  padding: 0.5rem 1rem;
+}
+.sidebar .sidebar-chat-search-wrapper .sidebar-chat-search {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.sidebar .sidebar-chat-search-wrapper .sidebar-chat-search .sidebar-chat-search-input-wrapper {
+  display: flex;
+  background: #202c33;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+}
+.sidebar .sidebar-chat-search-wrapper .sidebar-chat-search .sidebar-chat-search-input-wrapper:hover {
+  cursor: pointer;
+}
+.sidebar .sidebar-chat-search-wrapper .sidebar-chat-search .sidebar-chat-search-input-wrapper svg {
+  height: 1.2rem;
+  opacity: 0.6;
+}
+.sidebar .sidebar-chat-search-wrapper .sidebar-chat-search .sidebar-chat-search-input-wrapper input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+  caret-color: white;
+  color: white;
 }/*# sourceMappingURL=SideBar.css.map */

@@ -16,9 +16,11 @@ const SideBar = () => {
   const clickHandler = () => {
     setnewChattoggle("show");
   };
+
   const logouttoggleclickhandler = () => {
     setlogouttoggle(!logouttoggle);
   };
+  
   const logoutHandler = () => {
     localStorage.clear();
     navigate("/login");
@@ -64,6 +66,42 @@ const SideBar = () => {
               </div>
             </div>
           </nav>
+          <div className="sidebar-chat-search-wrapper">
+            <div className="sidebar-chat-search">
+              <div className="sidebar-chat-search-input-wrapper">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="125"
+                  height="125"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="#aebac1"
+                    fillRule="evenodd"
+                    d="M10 5a5 5 0 100 10 5 5 0 000-10zm-7 5a7 7 0 1112.606 4.192l5.101 5.1a1 1 0 01-1.414 1.415l-5.1-5.1A7 7 0 013 10z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <input type="text" placeholder="search" autoFocus />
+              </div>
+              <div className="sidebar-chat-search-filter">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="#aebac1"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="#aebac1"
+                    fillRule="evenodd"
+                    d="M3 7a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1zm3 5a1 1 0 011-1h10a1 1 0 110 2H7a1 1 0 01-1-1zm3 5a1 1 0 011-1h4a1 1 0 110 2h-4a1 1 0 01-1-1z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
           <SingleChatHeader newchats={chats} />
         </div>
         <SideBarNewChat
