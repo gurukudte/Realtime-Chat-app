@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import ChatContext from "../../../context/chatContext";
+import ChatContext from "../../context/chatContext";
 import { useNavigate } from "react-router-dom";
-import Axios from "../../../utils/axiosAPI";
+import Axios from "../../utils/axiosAPI";
 import "./Register.css";
 
 const SelectUser = () => {

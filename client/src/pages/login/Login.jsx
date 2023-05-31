@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import "./Login.css";
-import ChatContext from "../../../context/chatContext";
+import ChatContext from "../../context/chatContext";
 import { useNavigate } from "react-router-dom";
-import Axios from "../../../utils/axiosAPI";
+import Axios from "../../utils/axiosAPI";
 
 const SelectUser = () => {
   const { setuser, BACKEND_URI, setisLoggedin } = useContext(ChatContext);
@@ -82,7 +82,7 @@ const SelectUser = () => {
         </div>
         <div className="selectuser-signup-wrapper-signin">
           <p>
-            Don't have an account?<a href="/">Register</a>
+            Don't have an account?<a href="/register">Register</a>
           </p>
         </div>
       </div>
