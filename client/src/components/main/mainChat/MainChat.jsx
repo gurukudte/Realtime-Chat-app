@@ -27,7 +27,7 @@ const MainChat = () => {
         ref.current.value = "";
 
         setMesseges([...messeges, newMessege]);
-        socket.emit("new messege", newMessege); 
+        socket.emit("new messege", newMessege);
         const { data } = await axios.post(
           `${BACKEND_URI}/api/messege/${user._id}`,
           { chatId: activeChat._id, content: message }
@@ -109,29 +109,21 @@ const MainChat = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-            />
+              fill="#aebac1"
+              fillRule="evenodd"
+              d="M10 5a5 5 0 100 10 5 5 0 000-10zm-7 5a7 7 0 1112.606 4.192l5.101 5.1a1 1 0 01-1.414 1.415l-5.1-5.1A7 7 0 013 10z"
+              clipRule="evenodd"
+            ></path>
           </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
+            fill="#aebac1"
+            viewBox="0 0 32 32"
+            className="icon-options"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
+            <path d="M12.15 28.012v-.85c.019-.069.05-.131.063-.2.275-1.788 1.762-3.2 3.506-3.319 1.95-.137 3.6.975 4.137 2.787.069.238.119.488.181.731v.85c-.019.056-.05.106-.056.169-.269 1.65-1.456 2.906-3.081 3.262-.125.025-.25.063-.375.094h-.85c-.056-.019-.113-.05-.169-.056-1.625-.262-2.862-1.419-3.237-3.025-.037-.156-.081-.3-.119-.444zm7.888-24.024v.85c-.019.069-.05.131-.056.2-.281 1.8-1.775 3.206-3.538 3.319-1.944.125-3.588-1-4.119-2.819-.069-.231-.119-.469-.175-.7v-.85c.019-.056.05-.106.063-.162.3-1.625 1.244-2.688 2.819-3.194.206-.069.425-.106.637-.162h.85c.056.019.113.05.169.056 1.631.269 2.863 1.419 3.238 3.025l.113.437zm-.001 11.587v.85c-.019.069-.05.131-.063.2-.281 1.794-1.831 3.238-3.581 3.313-1.969.087-3.637-1.1-4.106-2.931-.05-.194-.094-.387-.137-.581v-.85c.019-.069.05-.131.063-.2.275-1.794 1.831-3.238 3.581-3.319 1.969-.094 3.637 1.1 4.106 2.931.05.2.094.394.137.588z"></path>
           </svg>
         </div>
       </div>
@@ -141,26 +133,28 @@ const MainChat = () => {
         </div>
       </div>
       <div className="main-chat-footer">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 20 20">
+          <g>
+            <g
+              fill="#aebac1"
+              fillRule="evenodd"
+              stroke="none"
+              strokeWidth="0.5"
+            >
+              <g fill="#aebac1" transform="translate(-380 -5759)">
+                <g transform="translate(56 160)">
+                  <path d="M340 5607a2 2 0 11-3.999.001A2 2 0 01340 5607m-10 2a2 2 0 11-.001-3.999A2 2 0 01330 5609m8.904 2.453c-.962 5.478-8.846 5.374-9.808-.104-.105-.598.386-.934.994-.934h7.82c.608 0 1.099.44.994 1.038M334 5617c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8m0-18c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10"></path>
+                </g>
+              </g>
+            </g>
+          </g>
         </svg>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
+          strokeWidth={1.8}
+          stroke="#aebac1"
           className="w-6 h-6"
         >
           <path
@@ -179,10 +173,10 @@ const MainChat = () => {
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
+          fill="#aebac1"
           viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
+          strokeWidth={2}
+          stroke="#aebac1"
           className="w-6 h-6"
         >
           <path

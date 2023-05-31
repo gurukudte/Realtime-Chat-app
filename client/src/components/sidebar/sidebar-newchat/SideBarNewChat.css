@@ -42,4 +42,26 @@
 }
 .sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-search .sidebar-newchat-serch-background input:focus-visible {
   outline: none;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-groupchat {
+  gap: 1.5rem;
+  display: flex;
+  padding: 0.5rem 1rem;
+  align-items: center;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-groupchat:hover {
+  cursor: pointer;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-groupchat .sidebar-newchat-groupchat-icon {
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: #005c4b;
+  padding: 0.5rem;
+  border-radius: 1.25rem;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-newchat .sidebar-newchat-wrapper .sidebar-newchat-groupchat span {
+  font-size: 1rem;
 }/*# sourceMappingURL=SideBarNewChat.css.map */

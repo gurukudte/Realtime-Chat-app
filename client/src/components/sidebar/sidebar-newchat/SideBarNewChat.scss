@@ -1,6 +1,6 @@
 .sidebar-newchat {
   position: relative;
-  
+
   .sidebar-newchat-wrapper {
     position: absolute;
     z-index: 200;
@@ -9,7 +9,7 @@
 
     display: flex;
     flex-direction: column;
-    
+
     .sidebar-newchat-header {
       display: flex;
       gap: 3rem;
@@ -18,7 +18,7 @@
       align-items: center;
       padding: 1.5rem;
       background-color: #202c33;
-      
+
       svg {
         &:hover {
           cursor: pointer;
@@ -46,6 +46,31 @@
             outline: none;
           }
         }
+      }
+    }
+    .sidebar-newchat-groupchat {
+      gap: 1.5rem;
+      display: flex;
+      padding: 0.5rem 1rem;
+      align-items: center;
+      &:hover {
+        cursor: pointer;
+      }
+      .sidebar-newchat-groupchat-icon {
+        display: flex;
+        height: 2.5rem;
+        width: 2.5rem;
+        background-color: #005c4b;
+        padding: 0.5rem;
+        border-radius: 1.25rem;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+        }
+      }
+      span {
+        font-size: 1rem;
       }
     }
   }

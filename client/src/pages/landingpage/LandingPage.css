@@ -1,0 +1,164 @@
+.landingpage-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 5rem;
+}
+.landingpage-wrapper > * {
+  transition: 0.3s;
+}
+.landingpage-wrapper a {
+  color: #c8e5d0;
+}
+.landingpage-wrapper header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.landingpage-wrapper header .logo a {
+  color: #008069;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.landingpage-wrapper header nav {
+  display: flex;
+  align-items: center;
+}
+.landingpage-wrapper header nav a {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.landingpage-wrapper header nav a:hover {
+  color: #008069;
+}
+.landingpage-wrapper header nav > * {
+  padding: 0.5rem 1.5rem;
+}
+.landingpage-wrapper header .actions {
+  display: flex;
+  align-items: center;
+}
+.landingpage-wrapper header .actions > * {
+  padding: 0.5rem;
+}
+.landingpage-wrapper header .actions li a {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.landingpage-wrapper header .actions li a:hover {
+  color: #008069;
+}
+.landingpage-wrapper header .actions button {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #005c4b;
+  border-radius: 1.2rem;
+}
+.landingpage-wrapper header .actions button a {
+  color: #c8e5d0;
+  font-weight: 600;
+}
+.landingpage-wrapper header .actions button a:hover {
+  color: white;
+}
+.landingpage-wrapper header .actions button:hover {
+  background-color: #045143;
+  border-radius: 1.2rem;
+}
+.landingpage-wrapper main {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.landingpage-wrapper main .captions {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.landingpage-wrapper main .captions article {
+  display: flex;
+  flex-direction: column;
+}
+.landingpage-wrapper main .captions article > * {
+  color: #c8e5d0;
+}
+.landingpage-wrapper main .captions article h2 {
+  font-size: 4rem;
+  text-align: left;
+  line-height: 5rem;
+}
+.landingpage-wrapper main .captions article p {
+  width: 80%;
+  padding-top: 1rem;
+  line-height: 2.5rem;
+  font-size: 1.3rem;
+  text-align: left;
+}
+.landingpage-wrapper main .captions button {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1rem;
+  background-color: #005c4b;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.5rem;
+}
+.landingpage-wrapper main .captions button > * {
+  color: #c8e5d0;
+}
+.landingpage-wrapper main .captions button a {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.landingpage-wrapper main .visual {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.landingpage-wrapper main .visual > * {
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+}
+.landingpage-wrapper main .visual .color-fill {
+  margin: 20px 0px 0px -57px;
+  height: 25rem;
+  width: 25rem;
+  background-color: #005c4b;
+  border-radius: 12.5rem;
+}
+.landingpage-wrapper main .visual .border-circle {
+  height: 25rem;
+  width: 25rem;
+  border-radius: 12.5rem;
+  border: 0.2rem solid black;
+}
+.landingpage-wrapper main .visual .smile-girl img {
+  height: 37.5rem;
+}
+.landingpage-wrapper main .visual .chat1 {
+  margin-right: 25rem;
+  margin-bottom: 7rem;
+  bottom: 0;
+}
+.landingpage-wrapper main .visual .chat1 img {
+  height: 5rem;
+}
+.landingpage-wrapper main .visual .chat2 {
+  margin-left: 20rem;
+  margin-bottom: 13rem;
+  bottom: 0;
+}
+.landingpage-wrapper main .visual .chat2 img {
+  height: 5rem;
+}
+
+a {
+  text-decoration: none;
+}/*# sourceMappingURL=LandingPage.css.map */

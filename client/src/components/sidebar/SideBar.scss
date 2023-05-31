@@ -21,6 +21,13 @@
     .sidebar-header-icon {
       display: flex;
       gap: 1rem;
+      align-items: center;
+      .icon-chat {
+        height: 1.1rem;
+      }
+      .icon-options {
+        height: 1rem;
+      }
       .logout {
         position: absolute;
         top: 4.2rem;
@@ -33,6 +40,37 @@
       }
       &:hover {
         cursor: pointer;
+      }
+    }
+  }
+  .sidebar-chat-search-wrapper {
+    padding: 0.5rem 1rem;
+    .sidebar-chat-search {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      .sidebar-chat-search-input-wrapper {
+        display: flex;
+        background: #202c33;
+        gap: 1rem;
+        width: 100%;
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.5rem;
+        &:hover {
+          cursor: pointer;
+        }
+        svg {
+          height: 1.2rem;
+          opacity: 0.6;
+        }
+        input {
+          width: 100%;
+          outline: none;
+          border: none;
+          background: transparent;
+          caret-color: white;
+          color: white;
+        }
       }
     }
   }
