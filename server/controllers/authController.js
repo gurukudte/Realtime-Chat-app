@@ -35,7 +35,7 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: { $eq: email } });
     if (user) {
       const originalpassword = CryptoJS.AES.decrypt(
         user.password,
